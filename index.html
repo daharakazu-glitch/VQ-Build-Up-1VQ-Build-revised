@@ -298,40 +298,6 @@
                     answer: ["lunch", "a fire"] 
                 },
 
-                // 3. Scrambled Sentences (Mapped to Category 4)
-                { 
-                    id: 19, category: '4', 
-                    en: "Food is necessary for humans to live.", 
-                    jp: "食べ物は人が生きるために必要だ。", 
-                    scrambled: "( humans / food / to / is / necessary / for / live )", 
-                    answer: "Food is necessary for humans to live", 
-                    explanation: "Food（一般的な食べ物）は無冠詞で主語になります。is necessary for ... to do の構文です。" 
-                },
-                { 
-                    id: 20, category: '4', 
-                    en: "She remembers being in the hospital when she was five.", 
-                    jp: "彼女は、5歳の時に入院していたことを覚えている。", 
-                    scrambled: "( being / hospital / in / remembers / she / the / when )", 
-                    answer: "remembers being in the hospital when", 
-                    explanation: "remembers being ... で「～だったことを覚えている」。in the hospital で「入院して」という表現です。" 
-                },
-                { 
-                    id: 21, category: '4', 
-                    en: "Make sure you lock the door before going to bed.", 
-                    jp: "寝る前に戸締まりを確実にしなさい。", 
-                    scrambled: "( bed / before / door / going / lock / the / to )", 
-                    answer: "lock the door before going to bed", 
-                    explanation: "Make sure (that) ... は「確実に～しなさい」。go to bed（寝る）は無冠詞です。" 
-                },
-                { 
-                    id: 22, category: '4', 
-                    en: "Please put the garbage into the plastic bag.", 
-                    jp: "ごみはそのビニール袋に入れてください。", 
-                    scrambled: "( bag / the garbage / into / plastic / please / put / the )", 
-                    answer: "Please put the garbage into the plastic bag", 
-                    explanation: "garbage（ごみ）は不可算名詞ですが、特定のごみなので the をつけます。ビニール袋は plastic bag と言います。" 
-                },
-
                 // 4. Translation (Mapped to Category 5)
                 { 
                     id: 23, category: '5', 
@@ -588,6 +554,15 @@
                 
                 // Category 1: Multiple Choice
                 if (sentence.category === '1') {
+                    jpP.classList.add('hidden'); // デフォルト非表示
+                    const toggleJpButton = document.createElement('button');
+                    toggleJpButton.className = 'control-button text-xs px-2 py-1 bg-indigo-100 text-indigo-700 rounded-md hover:bg-indigo-200';
+                    toggleJpButton.textContent = '日本語訳';
+                    toggleJpButton.onclick = () => {
+                        jpP.classList.toggle('hidden');
+                    };
+                    buttonGroup.appendChild(toggleJpButton);
+
                     const optionsDiv = document.createElement('div');
                     optionsDiv.className = 'mt-4 space-y-2'; 
                     
